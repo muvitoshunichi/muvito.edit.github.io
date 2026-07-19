@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動画編集チーム ムビト | 企業向け映像制作サービス</title>
+<meta name="description" content="マニュアル動画・社員研修動画・プロモーション動画まで、企画から納品までワンストップで対応する企業向け映像制作サービスです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#top" class="logo">
+      <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#16295F"/>
+            <stop offset="0.55" stop-color="#1E3A8A"/>
+            <stop offset="1" stop-color="#2563EB"/>
+          </linearGradient>
+          <linearGradient id="logoGradLens" x1="18.6" y1="24" x2="29.4" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset="1" stop-color="#A9CEFC"/>
+          </linearGradient>
+          <linearGradient id="logoGradSheen" x1="24" y1="2" x2="24" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.24"/>
+            <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="logoGradGlow" cx="24" cy="24" r="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+            <stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0.09"/>
+            <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="logoGradClip"><rect x="2" y="2" width="44" height="44" rx="13"/></clipPath>
+          <filter id="logoGradLensShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="1" stdDeviation="1.1" flood-color="#0A173D" flood-opacity="0.45"/>
+          </filter>
+        </defs>
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#logoGrad)"/>
+        <!-- 背景 = 映像(再生マーク)がすべての土台。トーンオントーンの透かし -->
+        <g clip-path="url(#logoGradClip)" opacity="0.13">
+          <path d="M11 7 L42.5 24 L11 41 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="5.0" stroke-linejoin="round"/>
+        </g>
+        <!-- 重なりから放たれる光 -->
+        <ellipse cx="24" cy="24" rx="14" ry="15" fill="url(#logoGradGlow)"/>
+        <!-- 主役: 円の重なり = 二者の色が混ざり合う場 -->
+        <path d="M24 14.53 A11.0 11.0 0 0 1 24 33.47 A11.0 11.0 0 0 1 24 14.53 Z" fill="url(#logoGradLens)" filter="url(#logoGradLensShadow)"/>
+        <!-- 主役: 2つの円 = 人と人 -->
+        <circle cx="18.4" cy="24" r="11.0" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+        <circle cx="29.6" cy="24" r="11.0" fill="none" stroke="#93C5FD" stroke-width="2.2"/>
+        <!-- タイル天面の控えめな光沢 -->
+        <g clip-path="url(#logoGradClip)">
+          <path d="M2 2 H46 V13.5 Q24 19.5 2 13.5 Z" fill="url(#logoGradSheen)"/>
+        </g>
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+      </svg>
+      <span class="logo__text">
+        <span class="logo__team">動画編集チーム</span>
+        <span class="logo__name">ムビト<span class="logo__latin">MUVITO</span></span>
+      </span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#service">サービス</a>
+      <a href="#strength">強み</a>
+      <a href="#works">実績</a>
+      <a href="#flow">流れ</a>
+      <a href="#price">料金</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <a href="#contact" class="btn btn--small btn--primary header__cta">無料相談する</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <canvas id="heroCanvas" class="hero__particles"></canvas>
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+    </div>
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">企業向け映像制作パートナー</p>
+      <h1 class="hero__title">"伝えたい"を、<br><span class="nowrap">成果につながる</span><span class="nowrap">映像へ。</span></h1>
+      <p class="hero__lead"><span class="nowrap">マニュアル動画・</span><span class="nowrap">社員研修動画・</span><span class="nowrap">プロモーション動画まで、</span><br><span class="nowrap">企画から撮影・編集・納品まで</span><span class="nowrap">ワンストップで対応します。</span></p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary btn--large">メールで相談する</a>
+        <a href="https://line.me/R/ti/p/@747gcaxz" class="btn btn--line btn--large" target="_blank" rel="noopener">LINEで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAIN POINTS ===== -->
+  <section class="section section--gray" id="pain">
+    <div class="container">
+      <p class="section__label">よくある悩み</p>
+      <h2 class="section__title">こんなお悩みはありませんか?</h2>
+      <ul class="pain-list">
+        <li><span class="pain-list__icon">✓</span>業務マニュアルが文章だけでは伝わりにくい</li>
+        <li><span class="pain-list__icon">✓</span>研修動画を作りたいが、社内に制作リソースがない</li>
+        <li><span class="pain-list__icon">✓</span>動画制作を外注したいが、どこに頼めばいいかわからない</li>
+        <li><span class="pain-list__icon">✓</span>クオリティとコストのバランスが取れる制作会社が見つからない</li>
+      </ul>
+      <div class="pain-arrow">▼</div>
+      <p class="pain-conclusion">その悩み、私たちが解決します。</p>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE ===== -->
+  <section class="section" id="service">
+    <div class="container">
+      <p class="section__label">サービス概要</p>
+      <h2 class="section__title">あらゆる企業向け動画の<br class="sp-only">制作を承ります</h2>
+      <div class="banner">業務用動画制作全般</div>
+      <div class="grid grid--4">
+        <div class="card card--icon">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 3v5h5"/>
+              <path d="M10.5 11.8v4.4l3.8-2.2z"/>
+            </svg>
+          </div>
+          <p class="card__title">マニュアル動画</p>
+        </div>
+        <div class="card card--icon">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 4h18"/>
+              <path d="M4 4v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4"/>
+              <path d="M10.6 7.9v4.2l3.6-2.1z"/>
+              <path d="M12 16v2"/>
+              <path d="M8.5 21 12 18l3.5 3"/>
+            </svg>
+          </div>
+          <p class="card__title">社員研修動画</p>
+        </div>
+        <div class="card card--icon">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 11v3a1 1 0 0 0 1 1h2l3 4.5a1 1 0 0 0 1.8-.6V6.1a1 1 0 0 0-1.8-.6L6 10H4a1 1 0 0 0-1 1z"/>
+              <path d="M15 9.5a4 4 0 0 1 0 6"/>
+              <path d="M18 7a8 8 0 0 1 0 11"/>
+            </svg>
+          </div>
+          <p class="card__title">プロモーション動画</p>
+        </div>
+        <div class="card card--icon">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12a8.4 8.4 0 0 1-8.5 8.3 8.9 8.9 0 0 1-3.2-.6L4 21l1.4-4.1A8 8 0 0 1 4 12a8.4 8.4 0 0 1 8.5-8.3A8.4 8.4 0 0 1 21 12z"/>
+              <path d="M8.5 12h.01M12.5 12h.01M16.5 12h.01"/>
+            </svg>
+          </div>
+          <p class="card__title">その他<br><span class="card__sub">お気軽にご相談ください</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRENGTH ===== -->
+  <section class="section section--gray" id="strength">
+    <div class="container">
+      <p class="section__label">私たちの強み</p>
+      <h2 class="section__title">選ばれる3つの理由</h2>
+      <div class="grid grid--3">
+        <div class="card card--strength">
+          <div class="card__number">01</div>
+          <p class="card__heading">スピード対応</p>
+          <p class="card__text">専属チームによる効率的な制作体制で、最短納期でのご納品が可能です。</p>
+        </div>
+        <div class="card card--strength">
+          <div class="card__number">02</div>
+          <p class="card__heading">高品質な仕上がり</p>
+          <p class="card__text">構成・撮影・編集まで一貫して対応し、ミスのない質の高い映像に仕上げます。</p>
+        </div>
+        <div class="card card--strength">
+          <div class="card__number">03</div>
+          <p class="card__heading">コストパフォーマンス</p>
+          <p class="card__text">必要な工程だけを柔軟に組み合わせ、適正価格でご提供します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKS / PORTFOLIO ===== -->
+  <section class="section" id="works">
+    <div class="container">
+      <p class="section__label">実績</p>
+      <h2 class="section__title">制作事例</h2>
+      <div class="grid grid--2 works-grid">
+        <div class="work-card">
+          <div class="work-card__video" data-video-id="QfIsjjsih0A" data-video-title="TV番組風 一人語り動画制作">
+            <button type="button" class="work-card__thumb" aria-label="動画を再生: TV番組風 一人語り動画制作">
+              <img src="https://img.youtube.com/vi/QfIsjjsih0A/hqdefault.jpg" alt="TV番組風 一人語り動画制作のサムネイル" loading="lazy">
+              <span class="work-card__play" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="work-card__play-bg" d="M66.52 7.74a8 8 0 0 0-5.63-5.66C55.93 .74 34 .74 34 .74s-21.93 0-26.89 1.34A8 8 0 0 0 1.48 7.74 84 84 0 0 0 0 24a84 84 0 0 0 1.48 16.26 8 8 0 0 0 5.63 5.66C12.07 47.26 34 47.26 34 47.26s21.93 0 26.89-1.34a8 8 0 0 0 5.63-5.66A84 84 0 0 0 68 24a84 84 0 0 0-1.48-16.26z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            </button>
+          </div>
+          <p class="work-card__title">TV番組風 一人語り動画制作</p>
+        </div>
+        <div class="work-card">
+          <div class="work-card__video" data-video-id="lrbIv8DHa74" data-video-title="オリジナルのトンマナ設計『効果的な筋トレ3選』">
+            <button type="button" class="work-card__thumb" aria-label="動画を再生: オリジナルのトンマナ設計『効果的な筋トレ3選』">
+              <img src="https://img.youtube.com/vi/lrbIv8DHa74/hqdefault.jpg" alt="オリジナルのトンマナ設計『効果的な筋トレ3選』のサムネイル" loading="lazy">
+              <span class="work-card__play" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="work-card__play-bg" d="M66.52 7.74a8 8 0 0 0-5.63-5.66C55.93 .74 34 .74 34 .74s-21.93 0-26.89 1.34A8 8 0 0 0 1.48 7.74 84 84 0 0 0 0 24a84 84 0 0 0 1.48 16.26 8 8 0 0 0 5.63 5.66C12.07 47.26 34 47.26 34 47.26s21.93 0 26.89-1.34a8 8 0 0 0 5.63-5.66A84 84 0 0 0 68 24a84 84 0 0 0-1.48-16.26z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            </button>
+          </div>
+          <p class="work-card__title">オリジナルのトンマナ設計「効果的な筋トレ3選」</p>
+        </div>
+        <div class="work-card">
+          <div class="work-card__video" data-video-id="7f0Hf_zkReY" data-video-title="ノウハウ動画 収入が増えない原因は「節約」でした">
+            <button type="button" class="work-card__thumb" aria-label="動画を再生: ノウハウ動画 収入が増えない原因は「節約」でした">
+              <img src="https://img.youtube.com/vi/7f0Hf_zkReY/hqdefault.jpg" alt="ノウハウ動画 収入が増えない原因は「節約」でしたのサムネイル" loading="lazy">
+              <span class="work-card__play" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="work-card__play-bg" d="M66.52 7.74a8 8 0 0 0-5.63-5.66C55.93 .74 34 .74 34 .74s-21.93 0-26.89 1.34A8 8 0 0 0 1.48 7.74 84 84 0 0 0 0 24a84 84 0 0 0 1.48 16.26 8 8 0 0 0 5.63 5.66C12.07 47.26 34 47.26 34 47.26s21.93 0 26.89-1.34a8 8 0 0 0 5.63-5.66A84 84 0 0 0 68 24a84 84 0 0 0-1.48-16.26z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            </button>
+          </div>
+          <p class="work-card__title">ノウハウ動画「収入が増えない原因は"節約"でした」</p>
+        </div>
+        <div class="work-card">
+          <div class="work-card__video" data-video-id="Wdoryyd7z8s" data-video-title="インタビュー動画制作">
+            <button type="button" class="work-card__thumb" aria-label="動画を再生: インタビュー動画制作">
+              <img src="https://img.youtube.com/vi/Wdoryyd7z8s/hqdefault.jpg" alt="インタビュー動画制作のサムネイル" loading="lazy">
+              <span class="work-card__play" aria-hidden="true"><svg viewBox="0 0 68 48"><path class="work-card__play-bg" d="M66.52 7.74a8 8 0 0 0-5.63-5.66C55.93 .74 34 .74 34 .74s-21.93 0-26.89 1.34A8 8 0 0 0 1.48 7.74 84 84 0 0 0 0 24a84 84 0 0 0 1.48 16.26 8 8 0 0 0 5.63 5.66C12.07 47.26 34 47.26 34 47.26s21.93 0 26.89-1.34a8 8 0 0 0 5.63-5.66A84 84 0 0 0 68 24a84 84 0 0 0-1.48-16.26z"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            </button>
+          </div>
+          <p class="work-card__title">インタビュー動画制作</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOW ===== -->
+  <section class="section section--dark" id="flow">
+    <div class="container">
+      <p class="section__label section__label--light">FLOW</p>
+      <h2 class="section__title section__title--light">制作の流れ</h2>
+      <p class="section__desc"><span class="nowrap">初めての外注でも安心。</span><span class="nowrap">ヒアリングから納品まで、</span><span class="nowrap">認識のズレが起きない</span><span class="nowrap">ステップで進めます。</span></p>
+      <div class="flow-grid">
+        <div class="flow-step">
+          <div class="flow-step__num">01</div>
+          <p class="flow-step__title">ヒアリング</p>
+          <p class="flow-step__text">目的・ターゲット・予算を丁寧に確認し、ゴールを共有します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">02</div>
+          <p class="flow-step__title">構成・撮影</p>
+          <p class="flow-step__text">意図から逆算して構成を設計。必要に応じて撮影も対応します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">03</div>
+          <p class="flow-step__title">編集</p>
+          <p class="flow-step__text">テロップ・BGM・エフェクトまで丁寧に作り込みます。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">04</div>
+          <p class="flow-step__title">初稿確認・修正</p>
+          <p class="flow-step__text">初稿を提出し、フィードバックを反映して調整します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">05</div>
+          <p class="flow-step__title">納品</p>
+          <p class="flow-step__text">各プラットフォームに最適な形式で納品します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICE ===== -->
+  <section class="section" id="price">
+    <div class="container">
+      <p class="section__label">料金プラン</p>
+      <h2 class="section__title">基本料金プラン<span class="section__note">※条件によって都度ご相談ください</span></h2>
+
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>マニュアル動画</th>
+              <th>社員研修動画</th>
+              <th>プロモーション動画</th>
+              <th>サムネイル制作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>金額</th>
+              <td>¥50,000 / 本</td>
+              <td>¥80,000 / 本</td>
+              <td>¥150,000 / 本</td>
+              <td>¥5,000 / 本</td>
+            </tr>
+            <tr>
+              <th>完成尺</th>
+              <td>10分以内</td>
+              <td>15分以内</td>
+              <td>3分以内</td>
+              <td>―</td>
+            </tr>
+            <tr>
+              <th>納期</th>
+              <td>10日〜</td>
+              <td>14日〜</td>
+              <td>14日〜</td>
+              <td>3日〜</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="price-table__other">
+          <p class="price-table__other-title">その他</p>
+          <ul>
+            <li>台本・構成作成</li>
+            <li>ナレーション手配</li>
+            <li>字幕・翻訳対応</li>
+          </ul>
+          <p class="price-table__other-note">なども対応可能です<br>※金額は要相談</p>
+        </div>
+      </div>
+
+      <div class="grid grid--4 price-detail">
+        <div class="price-detail__card">
+          <p class="price-detail__num">1</p>
+          <p class="price-detail__title">初期費用(1回のみ)</p>
+          <div class="price-detail__row"><span>構成・トンマナ設計</span><span class="price-detail__amount">¥30,000</span></div>
+          <p class="price-detail__memo">チャンネルや動画の世界観を最初に設計する費用です。2本目以降は不要です。</p>
+        </div>
+        <div class="price-detail__card">
+          <p class="price-detail__num">2</p>
+          <p class="price-detail__title">編集単価</p>
+          <div class="price-detail__row"><span>月4本以上の継続案件</span><span class="price-detail__amount">10%OFF</span></div>
+          <p class="price-detail__memo">継続的にご依頼いただく場合は割引価格でご案内します。</p>
+        </div>
+        <div class="price-detail__card">
+          <p class="price-detail__num">3</p>
+          <p class="price-detail__title">修正対応</p>
+          <div class="price-detail__row"><span>2回まで</span><span class="price-detail__amount">無料</span></div>
+          <div class="price-detail__row"><span>3回目以降</span><span class="price-detail__amount">¥5,000 / 回</span></div>
+          <p class="price-detail__memo">構成変更など大幅な修正は別途料金が発生する場合があります。</p>
+        </div>
+        <div class="price-detail__card">
+          <p class="price-detail__num">4</p>
+          <p class="price-detail__title">オプション・納期</p>
+          <div class="price-detail__row"><span>特急納期対応</span><span class="price-detail__amount">+¥5,000〜</span></div>
+          <div class="price-detail__row"><span>想定尺超過(5分毎)</span><span class="price-detail__amount">+¥10,000</span></div>
+          <p class="price-detail__memo">通常納期の目安は約2週間です。</p>
+        </div>
+      </div>
+
+      <h3 class="price-plan__title">継続契約プラン(月額)</h3>
+      <div class="grid grid--3 plan-grid">
+        <div class="plan-card">
+          <p class="plan-card__name">ライトプラン</p>
+          <p class="plan-card__price">¥200,000<span>/月〜</span></p>
+          <ul class="plan-card__list">
+            <li>月4本まで</li>
+            <li>企画・構成・編集</li>
+            <li>撮影:月1回</li>
+          </ul>
+        </div>
+        <div class="plan-card plan-card--featured">
+          <p class="plan-card__badge">おすすめ</p>
+          <p class="plan-card__name">スタンダードプラン</p>
+          <p class="plan-card__price">¥400,000<span>/月〜</span></p>
+          <ul class="plan-card__list">
+            <li>月9本まで</li>
+            <li>企画・構成・撮影・編集</li>
+            <li>撮影:月2回</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <p class="plan-card__name">プレミアムプラン</p>
+          <p class="plan-card__price">¥600,000<span>/月〜</span></p>
+          <ul class="plan-card__list">
+            <li>月15本まで</li>
+            <li>企画・構成・撮影・編集</li>
+            <li>撮影:月2〜3回</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-footnote"><span class="nowrap">上記は基本料金です。</span><span class="nowrap">案件内容により変動する場合がございます。</span><br class="sp-only"><span class="nowrap">まずはお気軽にご相談ください。</span><span class="nowrap">お見積りは無料です。</span></p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section section--gray" id="contact">
+    <div class="container">
+      <p class="section__label">CONTACT</p>
+      <h2 class="section__title">まずはお気軽にご相談ください</h2>
+      <p class="contact__lead"><span class="nowrap">お見積り・ご相談は無料です。</span><br class="sp-only"><span class="nowrap">下記フォームまたはLINEより</span><span class="nowrap">お気軽にお問い合わせください。</span></p>
+
+      <div class="contact__inner">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label for="company">会社名</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+          <div class="form-row">
+            <label for="name">ご担当者名</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="message">ご相談内容</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--large btn--block">メールで送信する</button>
+          <p class="form-note">送信ボタンを押すとお使いのメールソフトが起動します。<!-- TODO: 実際の送受信にはGoogleフォームやFormspree等の連携を推奨 --></p>
+        </form>
+
+        <div class="contact__line">
+          <p class="contact__line-title">お急ぎの方はLINEから</p>
+          <a href="https://line.me/R/ti/p/@747gcaxz" class="btn btn--line btn--large" target="_blank" rel="noopener">LINEで相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__logo">
+      <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGradFooter" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#60A5FA"/>
+          </linearGradient>
+          <linearGradient id="logoGradFooterLens" x1="18.6" y1="24" x2="29.4" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset="1" stop-color="#C8DEFC"/>
+          </linearGradient>
+          <linearGradient id="logoGradFooterSheen" x1="24" y1="2" x2="24" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+            <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="logoGradFooterGlow" cx="24" cy="24" r="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+            <stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0.09"/>
+            <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="logoGradFooterClip"><rect x="2" y="2" width="44" height="44" rx="13"/></clipPath>
+          <filter id="logoGradFooterLensShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="1" stdDeviation="1.1" flood-color="#0A173D" flood-opacity="0.45"/>
+          </filter>
+        </defs>
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#logoGradFooter)"/>
+        <!-- 背景 = 映像(再生マーク)がすべての土台。トーンオントーンの透かし -->
+        <g clip-path="url(#logoGradFooterClip)" opacity="0.16">
+          <path d="M11 7 L42.5 24 L11 41 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="5.0" stroke-linejoin="round"/>
+        </g>
+        <!-- 重なりから放たれる光 -->
+        <ellipse cx="24" cy="24" rx="14" ry="15" fill="url(#logoGradFooterGlow)"/>
+        <!-- 主役: 円の重なり = 二者の色が混ざり合う場 -->
+        <path d="M24 14.53 A11.0 11.0 0 0 1 24 33.47 A11.0 11.0 0 0 1 24 14.53 Z" fill="url(#logoGradFooterLens)" filter="url(#logoGradFooterLensShadow)"/>
+        <!-- 主役: 2つの円 = 人と人 -->
+        <circle cx="18.4" cy="24" r="11.0" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+        <circle cx="29.6" cy="24" r="11.0" fill="none" stroke="#DBEAFE" stroke-width="2.2"/>
+        <!-- タイル天面の控えめな光沢 -->
+        <g clip-path="url(#logoGradFooterClip)">
+          <path d="M2 2 H46 V13.5 Q24 19.5 2 13.5 Z" fill="url(#logoGradFooterSheen)"/>
+        </g>
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+      </svg>
+      <span class="logo__text">
+        <span class="logo__team">動画編集チーム</span>
+        <span class="logo__name">ムビト<span class="logo__latin">MUVITO</span></span>
+      </span>
+    </div>
+    <p class="footer__contact">Email: <a href="mailto:muvito0623@gmail.com">muvito0623@gmail.com</a></p>
+    <p class="footer__copyright">&copy; 2026 動画編集チーム ムビト. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
